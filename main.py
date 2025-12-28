@@ -5,7 +5,7 @@ app = FastAPI()
 
 @app.get("/")
 def root():
-    return {"message": "Hello World"}
+    return {"message": "hi"}
 
 class Person(BaseModel):
     FirstName: str
