@@ -17,6 +17,13 @@ class Person(BaseModel):
 def register (person: Person):
     return {"FirstName": person.FirstName, "LastName": person.LastName, "Email": person.Email, "Password": person.Password}
 
+@app.post("/onboarding_trackingpoints/{user_id}")
+def onboarding_trackingpoints(user_id: int, tracking_points: dict):
+    return {
+        "user_id": user_id,
+        "tracking_points": tracking_points
+    }
+
 @app.get("/tracking-points/{user_id}")
 def get_tracking_points(user_id: int):
     return{
@@ -44,9 +51,9 @@ def get_tracking_points(user_id: int):
   ]
 }
 
-@app.get("/tracking-points/{tracking_points_id}/subpoints")
+@app.get("/subpoints")
 
-def get_subpoints(tracking_points_id: int):
+def get_subpoints():
     return{
   "subpoints": [
     {
