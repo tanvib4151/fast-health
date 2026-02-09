@@ -25,7 +25,7 @@ class Person(BaseModel):
 def register (person: Person):
     return {"FirstName": person.FirstName, "LastName": person.LastName, "Email": person.Email, "Password": person.Password}
 
-@app.post("/onboarding_trackingpoints/{user_id}")
+@app.post("/onboarding_tracking-points/{user_id}")
 def onboarding_trackingpoints(user_id: int, tracking_points: dict):
     return {
         "user_id": user_id,
@@ -83,6 +83,23 @@ def get_subpoints():
       "id": "s4",
       "name": "Fatigue",
       "user_selected": False,
+    }
+  ]
+}
+
+@app.get("/dailylog/{date}")
+
+def get_daily_log(date: str):
+    return{
+  "date": date,
+  "logs": [
+    {
+      "subpoint": "Headache",
+      "duration": "1_hour",
+      "intensity": 1,
+      "factors": "Lack of Sleep",
+      "impact": "High",
+      "Others": "I go to sleep and the headache is really bad and affects my sleep and makes me very sad",
     }
   ]
 }
