@@ -99,7 +99,7 @@ def get_daily_log(date: str):
       "intensity": 1,
       "factors": "Lack of Sleep",
       "impact": "High",
-      "Others": "I go to sleep and the headache is really bad and affects my sleep and makes me very sad",
+      "Other": "I go to sleep and the headache is really bad and affects my sleep and makes me very sad",
     }
   ]
 }
