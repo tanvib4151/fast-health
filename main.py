@@ -94,12 +94,36 @@ def get_daily_log(date: str):
   "date": date,
   "logs": [
     {
-      "subpoint": "Headache",
+      "subpoint": "Nausea",
       "duration": "1_hour",
       "intensity": 1,
+      "factors": "milk",
+      "impact": "High",
+      "Other": "I'm so nauseous it makes me want to throw up and I can't eat anything",
+    },
+    {
+      "subpoint": "Pain",
+      "duration": "3_hour",
+      "intensity": 5,
+      "factors": "walking",
+      "impact": "High",
+      "Other": "I have pain all over my body and it makes it hard to do anything and I can't sleep",
+    },
+    {
+      "subpoint": "Headache",
+      "duration": "1_hour",
+      "intensity": 5,
       "factors": "Lack of Sleep",
       "impact": "High",
       "Other": "I go to sleep and the headache is really bad and affects my sleep and makes me very sad",
+    },
+    {
+      "subpoint": "Fatigue",
+      "duration": "1_hour",
+      "intensity": 2,
+      "factors": "Lack of Sleep",
+      "impact": "High",
+      "Other": "I go to sleep and the fatigue is really bad and affects my sleep and makes me very sad",
     }
   ]
-}
+    } 
