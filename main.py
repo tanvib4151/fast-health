@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
+from datetime import date
+
 
 app = FastAPI()
 
@@ -90,6 +92,8 @@ def get_subpoints():
 @app.get("/dailylog/{date}")
 
 def get_daily_log(date: str):
+    if not validate_date(date):
+        return {"error": "Invalid date format. Please use YYYY-MM-DD."}
     return{
   "date": date,
   "logs": [
@@ -126,4 +130,13 @@ def get_daily_log(date: str):
       "other": "I go to sleep and the fatigue is really bad and affects my sleep and makes me very sad",
     }
   ]
-    } 
+    }
+def validate_date(date_str: str) -> bool:
+    try:
+        date.fromisoformat(date_str)
+        return True
+    except ValueError:
+        return False 
+
+#yyyy-mm-dd
+# first vaildate string is in correct format and then return the daily log for that date
