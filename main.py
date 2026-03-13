@@ -99,7 +99,7 @@ def get_daily_log(date: str):
   "logs": [
     {
       "subpoint": "Nausea",
-      "duration": "1_hour",
+      "duration": "<hour",
       "intensity": 1,
       "factors": "milk",
       "impact": "High",
@@ -107,7 +107,7 @@ def get_daily_log(date: str):
     },
     {
       "subpoint": "Pain",
-      "duration": "3_hour",
+      "duration": "1_hour",
       "intensity": 5,
       "factors": "walking",
       "impact": "High",
@@ -115,7 +115,7 @@ def get_daily_log(date: str):
     },
     {
       "subpoint": "Headache",
-      "duration": "1_hour",
+      "duration": "3_hour",
       "intensity": 5,
       "factors": "Lack of Sleep",
       "impact": "High",
@@ -123,7 +123,7 @@ def get_daily_log(date: str):
     },
     {
       "subpoint": "Fatigue",
-      "duration": "1_hour",
+      "duration": "6_hour",
       "intensity": 2,
       "factors": "Lack of Sleep",
       "impact": "High",
