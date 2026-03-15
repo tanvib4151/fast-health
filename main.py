@@ -89,14 +89,9 @@ def get_subpoints():
   ]
 }
 
-@app.get("/dailylog/{date}")
 
-def get_daily_log(date: str):
-    if not validate_date(date):
-        return {"error": "Invalid date format. Please use YYYY-MM-DD."}
-    return{
-  "date": date,
-  "logs": [
+daily_logs_db={
+    "2026-03-12":[
     {
       "subpoint": "Nausea",
       "duration": "<hour",
@@ -129,7 +124,53 @@ def get_daily_log(date: str):
       "impact": "High",
       "other": "I go to sleep and the fatigue is really bad and affects my sleep and makes me very sad",
     }
-  ]
+    ],
+    "2026-03-13":[
+    {
+      "subpoint": "Nausea",
+      "duration": "<hour",
+      "intensity": 1,
+      "factors": "water",
+      "impact": "High",
+      "other": "I'm so nauseous it makes me want to throw up and I can't eat anything",
+    },
+    {
+      "subpoint": "Pain",
+      "duration": "1_hour",
+      "intensity": 5,
+      "factors": "walking",
+      "impact": "High",
+      "other": "I have pain all over my body and it makes it hard to do anything and I can't sleep",
+    },
+    {
+      "subpoint": "Headache",
+      "duration": "3_hour",
+      "intensity": 5,
+      "factors": "Lack of Sleep",
+      "impact": "High",
+      "other": "I go to sleep and the headache is really bad and affects my sleep and makes me very sad",
+    },
+    {
+      "subpoint": "Fatigue",
+      "duration": "6_hour",
+      "intensity": 2,
+      "factors": "Lack of Sleep",
+      "impact": "High",
+      "other": "I go to sleep and the fatigue is really bad and affects my sleep and makes me very sad",
+    }
+    ]
+
+}
+@app.get("/dailylog/{date}")
+
+def get_daily_log(date: str):
+    if not validate_date(date):
+        return {"error": "Invalid date format. Please use YYYY-MM-DD."}
+    
+    logs = daily_logs_db.get(date, [])
+    return{
+  "date": date,
+  "logs": logs
     }
 def validate_date(date_str: str) -> bool:
     try:
@@ -138,5 +179,5 @@ def validate_date(date_str: str) -> bool:
     except ValueError:
         return False 
 
-#yyyy-mm-dd
+#yyyy-MM-dd
 # first vaildate string is in correct format and then return the daily log for that date
