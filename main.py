@@ -161,15 +161,15 @@ daily_logs_db={
     ]
 
 }
-@app.get("/dailylog/{date}")
+@app.get("/dailylog/{log_date}")
 
-def get_daily_log(date: str):
-    if not validate_date(date):
+def get_daily_log(log_date: str):
+    if not validate_date(log_date):
         return {"error": "Invalid date format. Please use YYYY-MM-DD."}
     
-    logs = daily_logs_db.get(date, [])
+    logs = daily_logs_db.get(log_date, [])
     return{
-  "date": date,
+  "date": log_date,
   "logs": logs
     }
 def validate_date(date_str: str) -> bool:
